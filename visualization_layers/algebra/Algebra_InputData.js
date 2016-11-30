@@ -2,6 +2,7 @@
  * Created by elgenius on 11/29/16.
  */
 var globals = require('../Globals');
+var utils  = require('../../helpers/Utils');
 
 var Algebra_InputData = {
     /**
@@ -9,7 +10,7 @@ var Algebra_InputData = {
      */
 
     PassToAlgebra : function (table) {
-        console.log(Object.keys(table[0]));
+        utils.GetTableKeys(table);
     }
 };
 
