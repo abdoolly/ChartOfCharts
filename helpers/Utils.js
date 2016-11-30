@@ -4,17 +4,13 @@
 
 var Utils = {
     GetTableKeys: function (rows) {
-        console.log(Object.keys(rows));
-        // if (rows.length == 1)
-        // {
-        //     return Object.keys(rows);
-        // }else if (rows.length > 1)
-        // {
-        //     return Object.keys(rows[0]);
-        // }else
-        // {
-        //     throw "This is an empty object";
-        // }
+        if (rows.length >= 1) {
+            return Object.keys(rows[0]);
+        } else if (rows.length == 0) {
+            throw "This is an empty object";
+        } else {
+            return Object.keys(rows);
+        }
     }
 };
 

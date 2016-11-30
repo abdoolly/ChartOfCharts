@@ -7,7 +7,7 @@ var input = require('../visualization_layers/algebra/Algebra_InputData');
 
 var TestController = {
     test : function (req, res, next) {
-        model.getById(1,function (x,rows) {
+        model.getAll(function (x,rows) {
             input.PassToAlgebra(rows);
         });
         res.send('test');
