@@ -4,6 +4,7 @@
 var globals = require('../Globals');
 var utils = require('../../helpers/Utils');
 var async = require('async');
+// var express = require('express');
 
 var Algebra_InputData = {
     /**
@@ -15,7 +16,7 @@ var Algebra_InputData = {
     table_size: 0,
 
     PassToAlgebra: function (table) {
-        this.table = table;
+        globals.table = table;
         this.SetSize();
         this.keys = utils.GetTableKeys(this.GetTable());
         this.IdentifyKeyTypes();
@@ -69,7 +70,7 @@ var Algebra_InputData = {
     },
 
     GetTable: function () {
-        return this.table;
+        return globals.table;
     },
 
     SetSize: function () {
