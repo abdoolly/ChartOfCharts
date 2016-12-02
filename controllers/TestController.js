@@ -8,7 +8,9 @@ var input = require('../visualization_layers/algebra/Algebra_InputData');
 var TestController = {
     test : function (req, res, next) {
         model.getAll(function (x,rows) {
+
             input.PassToAlgebra(rows);
+
         });
         res.send('test');
     }

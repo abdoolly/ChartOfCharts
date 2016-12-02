@@ -22,40 +22,50 @@ var Algebra_InputData = {
     },
 
     IdentifyKeyTypes: function () {
-        var data_obj = {};
-        console.log(this.GetTableSize());
-        var table = this.GetTable;
+        var table = this.GetTable();
+        var this_class = this;
         async.each(this.keys, function (key) {
             var data_obj = {};
             async.each(table, function (item) {
-                // identifying that id is a numeric
                 var value = item[key];
                 data_obj[value] = 1;
             });
+            this_class.CalculateKeyType(Object.keys(data_obj).length, key, this_class);
         });
     },
 
-    CalculateKeyType: function (repeated_size, key) {
-        var table_size = this.GetTableSize();
-        // if reapeated is 40% or less of the table_size then it's categorical
+    CalculateKeyType: function (repeated_size, key, classObj) {
+        var table_size = classObj.GetTableSize();
+        // if repeated is 40% or less of the table_size then it's categorical
         var percentage = (repeated_size / table_size) * 100;
-        if (percentage <= 40) {
-            // case it was categorical with numerical values then it's an ordinal type
-            // this.key_types[key] = globals.CATEGORICAL;
+        if (percentage <= 50) {
+            if (classObj.GetColumnType(key) == 'number') {
+                classObj.key_types[key] = globals.ORDINAL;
+            } else
+                classObj.key_types[key] = globals.CATEGORICAL;
         } else
-            this.key_types[key] = globals.NUMERICAL;
+            classObj.key_types[key] = globals.NUMERICAL;
     },
 
+    /**
+     * @return {string}
+     */
     GetColumnType: function (key) {
-        // var table = this.GetTable();
-        // var data_type = {};
-        // if (table.length >= 1)
-        // {
-        //     for (var i = 0;i < 3 ; i++)
-        //     {
-        //         data_type[typeof table[i][key]] = 1;
-        //     }
-        // }
+        var table = this.GetTable();
+        var data_type = {};
+        var type;
+        if (table.length >= 1) {
+            for (var i = 0; i < 3; i++) {
+                data_type[typeof table[i][key]] = 1;
+                type = typeof table[i][key];
+            }
+        }
+
+        if (Object.keys(data_type).length == 1) {
+            return type.toString();
+        } else {
+            return 'string';
+        }
     },
 
     GetTable: function () {
