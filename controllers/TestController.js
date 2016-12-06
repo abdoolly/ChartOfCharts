@@ -5,9 +5,13 @@ var trial = require('../database/seeders/Trial');
 var model = require('../database/models/MainModel');
 var input = require('../visualization_layers/algebra/Algebra_InputData');
 var global = require('../visualization_layers/Globals');
+var op = require('../visualization_layers/algebra/Algebra_Operators');
+var util = require('../helpers/Utils');
 
-var TestController = {
-    test : function (req, res, next) {
+var TestController = function(){
+
+    this.test = function (req, res, next) {
+
         model.getAll(function (x,rows) {
             input.PassToAlgebra(rows);
         });
@@ -15,4 +19,4 @@ var TestController = {
     }
 };
 
-module.exports = TestController;
+module.exports = new TestController();

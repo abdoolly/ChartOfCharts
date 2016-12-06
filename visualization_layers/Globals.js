@@ -13,7 +13,8 @@ var Globals = function () {
         CATEGORICAL: "categorical",
         NUMERICAL: "numerical",
         ORDINAL: "ORDINAL",
-        table: []
+        table: [],
+        key_types: []
     }
 };
 
@@ -22,7 +23,7 @@ var getInstance = function () {
     if (obj == null) {
         obj = new Globals();
         return obj;
-    }else {
+    } else {
         return obj;
     }
 };

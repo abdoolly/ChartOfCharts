@@ -4,7 +4,7 @@
 var globals = require('../Globals');
 var utils = require('../../helpers/Utils');
 var async = require('async');
-// var express = require('express');
+var op = require('./Algebra_Operators');
 
 var Algebra_InputData = {
     /**
@@ -17,9 +17,13 @@ var Algebra_InputData = {
 
     PassToAlgebra: function (table) {
         globals.table = table;
+        this.table = table;
         this.SetSize();
         this.keys = utils.GetTableKeys(this.GetTable());
         this.IdentifyKeyTypes();
+        globals.key_types = this.key_types;
+        var operator = new op();
+        operator.cross('number','year');
     },
 
     IdentifyKeyTypes: function () {

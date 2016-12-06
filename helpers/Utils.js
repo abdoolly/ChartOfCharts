@@ -2,8 +2,9 @@
  * Created by elgenius on 11/30/16.
  */
 
-var Utils = {
-    GetTableKeys: function (rows) {
+var Utils = function () {
+
+    this.GetTableKeys = function (rows) {
         if (rows.length >= 1) {
             return Object.keys(rows[0]);
         } else if (rows.length == 0) {
@@ -11,7 +12,7 @@ var Utils = {
         } else {
             return Object.keys(rows);
         }
-    }
+    };
 };
 
-module.exports = Utils;
+module.exports = new Utils();
