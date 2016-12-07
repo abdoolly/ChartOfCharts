@@ -23,7 +23,7 @@ var Algebra_InputData = {
         this.IdentifyKeyTypes();
         globals.key_types = this.key_types;
         var operator = new op();
-        operator.cross('name','power (hp)');
+        operator.blend('name','power (hp)','weight (lb)','cylinders');
     },
 
     IdentifyKeyTypes: function () {

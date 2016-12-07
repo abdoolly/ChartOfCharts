@@ -13,8 +13,10 @@ var parser = require('../visualization_layers/variable/parser');
 var TestController = function () {
 
     this.test = function (req, res, next) {
+
         globals.last_callback = res;
         parser.ReadFile('../helpers/input_files/cars.csv');
+
         // console.log(globals.user_input);
         // model.getAll(function (x,rows) {
         // input.PassToAlgebra(rows);

@@ -47,6 +47,7 @@ var Algebra_Operators = function (table) {
             eval(crossingAction);
         });
 
+        // console.log(table_keys);
         return table_keys;
     };
 
@@ -55,7 +56,14 @@ var Algebra_Operators = function (table) {
     };
 
     this.blend = function () {
+        var table_keys = this.cross.apply(this, arguments);
 
+        var main_array = [];
+        for (var i = 0; i < arguments.length; i++)
+            main_array = main_array.concat(table_keys[arguments[i]]);
+
+        console.log(main_array);
+        return main_array;
     };
 
     this.SetWorkOnTable = function (table) {
