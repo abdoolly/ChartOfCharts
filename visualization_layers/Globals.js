@@ -5,17 +5,18 @@
  */
 
 var Globals = function () {
-    return {
-        /**
-         * This class will have properties will we need to use while passing through out the layers
-         */
-        user_input: "",
-        CATEGORICAL: "categorical",
-        NUMERICAL: "numerical",
-        ORDINAL: "ORDINAL",
-        table: [],
-        key_types: []
-    }
+
+    /**
+     * This class will have properties will we need to use while passing through out the layers
+     */
+    this.user_input = "";
+    this.CATEGORICAL = "categorical";
+    this.NUMERICAL = "numerical";
+    this.ORDINAL = "ORDINAL";
+    this.table = [];
+    this.key_types = [];
+    this.last_callback = ""; // this will  send the response to the user at the end of all callbacks
+
 };
 
 var obj = null;

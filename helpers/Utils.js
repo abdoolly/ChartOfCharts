@@ -1,7 +1,3 @@
-/**
- * Created by elgenius on 11/30/16.
- */
-
 var Utils = function () {
 
     this.GetTableKeys = function (rows) {
