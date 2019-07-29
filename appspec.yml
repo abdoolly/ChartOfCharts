@@ -1,0 +1,7 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    # destination: /home/ubuntu/Audacious/FutureFit/EE/Server/futurefit_employee_server/ # should be changed the destination that should be put in
+    destination: /home/ubuntu/first-repo/ # should be changed the destination that should be put in
