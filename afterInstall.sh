@@ -1,1 +1,1 @@
-cp -r . /home/ubuntu/chartOfCharts
+cp -r /home/ubuntu/first-repo /home/ubuntu/chartOfCharts
