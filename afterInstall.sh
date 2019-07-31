@@ -1,1 +1,1 @@
-cp -r . ../chartOfCharts
+cp -r . /home/ubuntu/chartOfCharts
